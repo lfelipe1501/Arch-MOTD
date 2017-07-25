@@ -1,16 +1,16 @@
-			 _____________________________________
-			/ MOTD for Arch Linux Systems         \
-			| This repository is for you Arch     |
-			\_____________________________________/
-			   \
-				\
-					.--.
-				   |o_o |
-				   |:_/ |
-				  //   \ \
-				 (|     | )
-				/'\_   _/`\
-				\___)=(___/
+	 _____________________________________
+	/ MOTD for Arch Linux Systems         \
+	| This repository is for you Arch     |
+	\_____________________________________/
+	   \
+	    \
+	      .--.
+	     |o_o |
+	     |:_/ |
+	    //   \ \
+	   (|     | )
+	  /'\_   _/`\
+	  \___)=(___/
 	
 ![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/lfelipe1501/Atomic-Yakuake/issues)
