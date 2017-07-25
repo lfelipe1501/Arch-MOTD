@@ -17,6 +17,12 @@
 
 These scripts look great for your MOTDS on Arch Linux systems
 
+## Archlinux MOTD
+![Archlinux-MOTD](./Captures/Arch-MOTD.png)
+
+## Archlinux Rpi MOTD
+![Archlinux-MOTD-pi](./Captures/RPI-MOTD.png)
+
 ### Contact / Social Media
 
 *Get the latest News about Web Development, Open Source, Tooling, Server & Security*
