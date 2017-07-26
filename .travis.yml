@@ -17,4 +17,5 @@ arch:
     - "sudo neofetch"
     
 script:
-- "sudo sh update_motd.sh"
+  - "bash ./.arch-travis.sh"
+  - "sudo sh update_motd.sh"
