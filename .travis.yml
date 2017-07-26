@@ -1,9 +1,20 @@
+sudo: required
+
+env:
+  - ARCH_TRAVIS_CLEAN_CHROOT=1
+  - ARCH_TRAVIS_CONFIRM_YES=1
+
 language: c
 
-matrix:
-  include:
-    - os: linux
-      dist: Arch
-      sudo: required
+arch:
+  repos:
+    - archlinuxfr=http://repo.archlinux.fr/$arch
+  packages:
+    - openssh
+    # aur
+    - neofetch
+  script:
+    - "sudo neofetch"
+    
 script:
 - "sudo sh update_motd.sh"
