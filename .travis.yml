@@ -3,7 +3,7 @@ language: c
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: Arch
       sudo: required
 script:
 - "sudo sh update_motd.sh"
