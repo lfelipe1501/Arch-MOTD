@@ -11,8 +11,8 @@ KERNEL=`uname -r`
 CPU=`awk -F '[ :][ :]+' '/^model name/ { print $2; exit; }' /proc/cpuinfo`
 ARCH=`uname -m`
 PACMAN=`checkupdates | wc -l`
-DISC=`df -h | grep /dev/xvda1 | awk '{print $5 }'`
-MEMORY1=`free -t -m | grep "Mem" | awk '{print $6" MB";}'`
+DISC=`df -h | grep /dev/root | awk '{print $5 }'`
+MEMORY1=`free -t -m | grep "Mem" | awk '{print $3" MB";}'`
 MEMORY2=`free -t -m | grep "Mem" | awk '{print $2" MB";}'`
 #PSA=`ps -Afl | wc -l`
 #PSU=`ps U $USER h | wc -l`
@@ -51,16 +51,16 @@ N="\033[0m"
 #Clear screen before motd
 cat /dev/null > $motd
 
-echo -e "                                                                                     $G.~~.   .~~.$W
-        $B. $W                                                                          $G'. \ ' ' / .'$W
+echo -e "                                                                                      $G.~~.   .~~.$W
+        $B. $W                                                                           $G'. \ ' ' / .'$W
        $B/#\ $W                     _     $B _ _                   $W _                       $R.~..~~~..~.$W
       $B/###\ $W      __ _ _ __ ___| |__  $B| (_)_ __  _   ___  __ $W| |  _   ___ __  __     $R: .~.'~'.~. :$W
      $B/#####\ $W    / _' | '__/ __| '_ \ $B| | | '_ \| | | \ \/ / $W| | / \ | _ \  \/  |   $R~ (   ) (   ) ~$W
     $B/##.-.##\ $W  | (_| | | | (__| | | |$B| | | | | | |_| |>  <  $W| |/ ^ \|   / |\/| |  $R( : '~'.~.'~' : )$W
    $B/##(   )##\ $W  \__,_|_|  \___|_| |_|$B|_|_|_| |_|\__._/_/\_\ $W| /_/ \_\_|_\_|  |_|   $R~ .~ (   ) ~. ~$W
   $B/#.--   --.#\ $W                                             $W|_|     $G>$R Raspberry Pi$W  $R(  : '~' :  )$W
- $B/'           '\                                                                     $R'~ .~~~. ~'$W
-                                                                                         $R'~'$W"
+ $B/'           '\                                                                      $R'~ .~~~. ~'$W
+                                                                                          $R'~'$W"
 > $motd
 echo -e "$G---------------------------------------------------------------" >> $motd
 echo -e "$W   Good $TIME$A You're Logged Into $B$A$HOSTNAME$W! " 	    >> $motd
