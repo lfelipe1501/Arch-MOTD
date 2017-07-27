@@ -1,7 +1,7 @@
-     _____________________________________
-    / MOTD for Arch Linux Systems         \
-    | This repository is for you Arch     |
-    \_____________________________________/
+     __________________________________
+    / MOTD for Arch Linux Systems      \
+    | This repository is for you Arch  |
+    \__________________________________/
        \
         \
           .--.
