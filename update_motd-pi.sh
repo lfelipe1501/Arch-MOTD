@@ -5,7 +5,6 @@
 motd="/etc/motd"
 
 # Collect information
-#USERNAME=`$USER`
 HOSTNAME=`uname -n`
 KERNEL=`uname -r`
 CPU=`awk -F '[ :][ :]+' '/^model name/ { print $2; exit; }' /proc/cpuinfo`
@@ -14,8 +13,7 @@ PACMAN=`checkupdates | wc -l`
 DISC=`df -h | grep /dev/mmcblk0p2 | awk '{print $5 }'`
 MEMORY1=`free -t -m | grep "Mem" | awk '{print $3" MB";}'`
 MEMORY2=`free -t -m | grep "Mem" | awk '{print $2" MB";}'`
-#PSA=`ps -Afl | wc -l`
-#PSU=`ps U $USER h | wc -l`
+MEMPERCENT=`free | awk '/Mem/{printf("%.2f% (Used) "), $3/$2*100}'`
 
 #Time of day
 HOUR=$(date +"%H")
@@ -67,7 +65,7 @@ echo -e "$W   Good $TIME$A You're Logged Into $B$A$HOSTNAME$W! " 	    >> $motd
 echo -e "$G---------------------------------------------------------------" >> $motd
 echo -e "$B    KERNEL $G:$W $KERNEL $ARCH                                 " >> $motd
 echo -e "$B       CPU $G:$W $CPU                                          " >> $motd
-echo -e "$B    MEMORY $G:$W $MEMORY1 / $MEMORY2                           " >> $motd
+echo -e "$B    MEMORY $G:$W $MEMORY1 / $MEMORY2 - $MEMPERCENT             " >> $motd
 echo -e "$B  USE DISK $G:$W $DISC                          	          " >> $motd
 echo -e "$G---------------------------------------------------------------" >> $motd
 echo -e "$B  LOAD AVG $G:$W $LOAD1, $LOAD5, $LOAD15		          " >> $motd
