@@ -148,6 +148,7 @@ setup_chroot() {
   # update packages
   chroot_as_root "pacman -Syy"
   chroot_as_root "pacman -Syu ${default_packages[*]} --noconfirm"
+  #chroot_as_root "pacman -S archlinux-keyring && sudo pacman -Syu"
 
   # use LANG=en_US.UTF-8 as expected in travis environments
   as_root "sed -i 's|#en_US.UTF-8|en_US.UTF-8|' $ARCH_TRAVIS_CHROOT/etc/locale.gen"
@@ -278,13 +279,6 @@ setup_pacaur() {
 # install package through pacaur
 _pacaur() {
   local pacaur="pacaur -S $@ --noconfirm --noedit"
-  echo "$ARCH_TRAVIS_CONFIRM_YES"
-  if [ -n "$ARCH_TRAVIS_CONFIRM_YES" ]; then
-    pacaur="yes | $pacaur"
-  fi
-
-  echo "$pacaur"
-
   chroot_as_normal "$pacaur"
 }
 

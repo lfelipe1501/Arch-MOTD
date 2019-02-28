@@ -20,3 +20,5 @@ arch:
 script:
   - "bash ./.arch-travis.sh"
   - "ls -lh"
+  - "cat /etc/motd"
+
