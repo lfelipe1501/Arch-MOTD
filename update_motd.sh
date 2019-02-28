@@ -10,7 +10,8 @@ KERNEL=`uname -r`
 CPU=`awk -F '[ :][ :]+' '/^model name/ { print $2; exit; }' /proc/cpuinfo`
 ARCH=`uname -m`
 PACMAN=`checkupdates | wc -l`
-DISC=`df -h | grep /dev/xvda1 | awk '{print $5 }'`
+DETECTDISK=`mount -v | fgrep 'on / ' | sed -n 's_^\(/dev/[^ ]*\) .*$_\1_p'`
+DISC=`df -h | grep $DETECTDISK | awk '{print $5 }'`
 MEMORY1=`free -t -m | grep "Mem" | awk '{print $6" MB";}'`
 MEMORY2=`free -t -m | grep "Mem" | awk '{print $2" MB";}'`
 MEMPERCENT=`free | awk '/Mem/{printf("%.2f% (Used) "), $3/$2*100}'`
@@ -64,7 +65,7 @@ echo -e "$G---------------------------------------------------------------" >> $
 echo -e "$B    KERNEL $G:$W $KERNEL $ARCH                                 " >> $motd
 echo -e "$B       CPU $G:$W $CPU                                          " >> $motd
 echo -e "$B    MEMORY $G:$W $MEMORY1 / $MEMORY2 - $MEMPERCENT             " >> $motd
-echo -e "$B  USE DISK $G:$W $DISC                          	          " >> $motd
+echo -e "$B  USE DISK $G:$W $DISC (Used)                      	          " >> $motd
 echo -e "$G---------------------------------------------------------------" >> $motd
 echo -e "$B  LOAD AVG $G:$W $LOAD1, $LOAD5, $LOAD15		          " >> $motd
 echo -e "$B    UPTIME $G:$W $upDays days $upHours hours $upMins minutes $upSecs seconds " >> $motd
