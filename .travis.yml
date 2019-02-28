@@ -1,24 +1,30 @@
 sudo: required
 
-env:
-  - ARCH_TRAVIS_CLEAN_CHROOT=1
-  - ARCH_TRAVIS_CONFIRM_YES=1
-
 language: c
+
+compiler:
+- gcc
+- clang
+
+services:
+- docker
 
 arch:
   repos:
-    - archlinuxfr=http://repo.archlinux.fr/$arch
+  - archlinuxfr=http://repo.archlinux.fr/$arch
   packages:
-    - openssh
-    # aur
-    - neofetch
+  - reflector
+  - neofetch
   script:
-    - "sudo neofetch"
-    - "sudo sh update_motd.sh"
-    
-script:
-  - "bash ./.arch-travis.sh"
-  - "ls -lh"
-  - "cat /etc/motd"
+  - sudo neofetch
+  - reflector --verbose -l 20 --sort rate -p https
+  - echo $CC
+  - touch test_file
+  - "sudo sh update_motd.sh"
 
+script:
+# build new image
+- docker build --rm=true -t mikkeloscar/arch-travis:latest .
+# run arch-travis to test new image
+- bash ./arch-travis.sh
+- ls -l
