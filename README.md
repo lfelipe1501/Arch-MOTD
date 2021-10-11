@@ -37,4 +37,4 @@ And also how these [MOTD's look](https://github.com/lfelipe1501/Arch-MOTD/wiki/M
 ### Development by
 
 Developer / Author: [Luis Felipe Sánchez](https://github.com/lfelipe1501)
-Company: [lfsystems](https://www.lfsystems.xyz)
+Company: [lfsystems](https://www.lfsystems.com.co)
