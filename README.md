@@ -18,6 +18,10 @@
 
 These scripts look great for your MOTDS on Arch Linux systems.
 
+This MOTD uses the checkupdates command to obtain the list of upgradeables packages, so it is necessary to install the command in the base operating system with:
+
+`$ sudo pacman -S pacman-contrib `
+
 You can see the [Installation Guide](https://github.com/lfelipe1501/Arch-MOTD/wiki/Installation-Guide) in the [WIKI](https://github.com/lfelipe1501/Arch-MOTD/wiki) session
 
 And also how these [MOTD's look](https://github.com/lfelipe1501/Arch-MOTD/wiki/MOTD-captures)
